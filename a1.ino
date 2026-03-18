@@ -5,9 +5,10 @@ void setup()
   pinMode (11, OUTPUT);
 }
 const int f = 660;
-const unsigned long nudget = 400;
+const unsigned long nudget = 300;
 bool nudge;
 byte test = 0;
+
 int cbit = 0;
 unsigned long pmicros1 = 0;
 unsigned long pmicros2 = 0;
@@ -24,18 +25,20 @@ void loop()
    if (!s)
    {
     nudge = true; 
+    pmicros4 = micros();
+    digitalWrite(12, HIGH);
    }
   } 
   if (!s)
   {
     pmicros2 = 0;
     cbit  = 0;
-    digitalWrite(11, LOW);
     if (nudge)
     {
       if (micros() - pmicros4 > nudget)
       {
-        digitalWrite()
+        digitalWrite(12, LOW);
+        nudge = false;
       }
     }
   }
